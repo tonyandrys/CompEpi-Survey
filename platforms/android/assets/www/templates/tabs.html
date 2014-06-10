@@ -1,0 +1,23 @@
+<!-- Tabs template. All tabs, their appearance, and on-click actions are defined here. -->
+
+<!--  all tabs are children of the <ion-tabs> tag which defines the look of the container -->
+
+<ion-tabs class="tabs-icon-top tabs-positive">
+
+    <!--  
+    Each tab has a title and icon property used to display each clickable tab button on the bottom bar.
+    When clicked by the user, Ionic refers to the href property on the respective tab.
+    the ion-nav-view tag points to the name of the state to display (defined in app.js) 
+    -->
+
+    <!-- Survey Tab -->
+    <ion-tab title="Survey" icon="ion-clipboard" href="#/tab/survey">
+      <ion-nav-view name="survey-tab"></ion-nav-view>
+    </ion-tab>
+
+    <!-- Contact Tab -->
+    <ion-tab title="Contact" icon="ion-ios7-world" href="#/tab/contact">
+      <ion-nav-view name="contact-tab"></ion-nav-view>
+    </ion-tab>
+
+</ion-tabs>

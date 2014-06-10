@@ -1,0 +1,52 @@
+<!-- Model for a new view template -->
+<ion-view title="Page One">
+  <ion-content class="padding">
+    <!-- Define this tab's visible display content -->
+    
+    <div class="row">
+    	<div class="col col-100">
+    		<h2 style="text-align:center">Basic Information</h2>
+    	</div>
+    </div>
+
+    <div class="row">
+    	<div class="col col-100">
+				<div class="list">
+					<label class="item item-input item-stacked-label item-select">
+						<span class="input-label">Title</span>
+						<select>
+							<option>Mr.</option>
+							<option>Mrs.</option>
+							<option>Ms.</option>
+							<option>Miss</option>
+							<option>Dr.</option>
+							<option>Hon.</option>
+						</select>
+					</label>
+
+					<!-- Bind input fields to controller properties to retain state -->
+				  <label class="item item-input item-stacked-label">
+				    <span class="input-label">First Name</span>
+				    <input type="text" ng-model="firstName" placeholder="Alan">
+				  </label>
+				  <label class="item item-input item-stacked-label">
+				    <span class="input-label">Last Name</span>
+				    <input type="text" ng-model="lastName" placeholder="Smithee">
+				  </label>
+				  <label class="item item-input item-stacked-label">
+				    <span class="input-label">Date Of Birth</span>
+				    <input type="datetime" ng-model="dateOfBirth" placeholder="05/14/1992">
+				  </label>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col col-100">
+				<a class="button button-block button-stable icon icon-right ion-chevron-right" href="#/tab/survey/2">Next</a>  
+			</div>
+		</div>
+
+
+	</ion-content>
+</ion-view>

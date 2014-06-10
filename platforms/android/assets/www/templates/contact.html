@@ -1,0 +1,56 @@
+<!-- ContactTabCtrl is bound to the root of this layout. -->
+
+<ion-view title="Contact Us">
+  <ion-content class="padding">
+
+    <p style="text-align:center">
+      <img style="width:80%" src="../img/compepi_logo.png">
+    </p>
+
+  	<ul class="list">
+  		
+  		<!-- Faculty -->
+  		<li class="item item-divider">
+  			Faculty
+  		</li>
+    	<li class="item" ng-repeat="f in facultyList">
+	    	<h2>{{f.name}}</h2>
+				<p>{{f.email}}</p>
+    	</li>
+
+    	<!-- PhD Students -->
+    	<li class="item item-divider">
+    		PhD Students
+    	</li>
+    	<li class="item" ng-repeat="p in phdList">
+    		<h2>{{p.name}}</h2>
+				<p>{{p.email}}</p>
+    	</li>
+
+    	<!-- MCS Students -->
+    	<li class="item item-divider">
+    		MCS Students
+    	</li>
+    	<li class="item" ng-repeat="m in mcsList">
+	    	<h2>{{m.name}}</h2>
+				<p>{{m.email}}</p>
+    	</li>
+
+    	<!-- BS/BA Students -->
+    	<li class="item item-divider">
+    		BS/BA Students
+    	</li>
+    	<li class="item" ng-repeat="u in undergradList">
+    		<h2>{{u.name}}</h2>
+				<p>{{u.email}}</p>
+    	</li>
+
+		</ul>
+
+  	
+
+	</ion-content>
+</ion-view>
+
+
+

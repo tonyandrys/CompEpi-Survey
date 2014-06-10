@@ -1,0 +1,43 @@
+<ion-view title="Done">
+  <ion-content class="padding">
+
+    <!-- Define this tab's visible display content -->
+    <div class="row">
+    	<div class="col col-100">
+    		<h3 style="text-align:center">Thanks for taking this survey.</h3>
+        <h5 style="text-align:center">Your answers have been saved. You can see your data below.</h5>
+    	</div>
+    </div>
+
+    <div class="row">
+    	<div class="col col-100">
+
+    		<div class="card">
+  				<div class="item item-divider">
+    				First Name
+  				</div>
+				  <div class="item item-text-wrap">
+				    {{firstName}}
+				  </div>
+				</div>
+
+				<div class="card">
+  				<div class="item item-divider">
+    				Last Name
+  				</div>
+				  <div class="item item-text-wrap">
+				    {{lastName}}
+				  </div>
+				</div>
+
+    	</div>
+    </div>
+
+    <div class="row">
+    	<div class="col col-100">
+				<a nav-clear href="#/survey/end" class="button button-stable button-block">Home</a>    	
+			</div>
+    </div>
+
+	</ion-content>
+</ion-view>
