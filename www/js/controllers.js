@@ -1,4 +1,5 @@
-// CompEpiSurvey controller definitions
+/* compEpiSurvey.controllers */
+// Contains the controller definitions for CompEpiSurvey.
 
 angular.module('compEpiSurvey.controllers', [])
 
@@ -7,82 +8,15 @@ angular.module('compEpiSurvey.controllers', [])
 })
 
 // Contact Data Controller
-.controller('ContactTabCtrl', function($scope) {
+// Inject the contactListModel service defined in compEpiSurvey.services to access the staff data
+.controller('ContactTabCtrl', function($scope, contactListModel) {
   console.log('ContactTabCtrl');
 
-  // Hardcode contact information from http://compepi.cs.uiowa.edu/index.php/Profiles/People
-  
-  // Faculty List
-  $scope.facultyList = [{
-    name: 'Alberto Segre',
-    email: 'alberto-segre@uiowa.edu'
-  }, {
-    name: 'Sriram Pemmaraju',
-    email: 'sriram-pemmaraju@uiowa.edu'
-  }, {
-    name: 'Ted Herman',
-    email: 'ted-herman@uiowa.edu'
-  }, {
-    name: 'Phil Polgreen',
-    email: 'philip-polgreen@uiowa.edu'
-  }, {
-    name: 'James Cremer',
-    email: 'james-cremer@uiowa.edu'
-  }];
-
-  // PhD List
-  $scope.phdList = [{
-    name: 'Geoffrey Fairchild',
-    email: 'geoffrey-fairchild@uiowa.edu'
-  }, {
-    name: 'Jason Fries',
-    email: 'jason-fries@uiowa.edu'
-  }, {
-    name: 'Valerie Galluzzi',
-    email: 'valerie-galluzzi@uiowa.edu'
-  }, {
-    name: 'Farley Lai',
-    email: 'poyuan-lai@uiowa.edu'
-  }, {
-    name: 'Mauricio Monsalve', 
-    email: 'mauricio-monsalve@uiowa.edu'
-  }, {
-    name: 'Patrick Rhomberg',
-    email: 'patrick-rhomberg@uiowa.edu'
-  }, {
-    name: 'Jacob Simmering',
-    email: 'jacob-simmering@uiowa.edu'
-  }, {
-    name: 'Sean Lucio Tolentino',
-    email: 'sean-tolentino@uiowa.edu'
-  }];
-
-  // MCS Students
-  $scope.mcsList = [{
-    name: 'Yixen Chen',
-    email: 'ychen120@uiowa.edu'
-  }];
-
-  // BS/BA Students
-  $scope.undergradList = [{
-    name: 'Tony Andrys',
-    email: 'anthony-andrys@uiowa.edu'
-  }, {
-    name: 'Vasu Balakrishnan',
-    email: 'vasu-balakrishnan@uiowa.edu'
-  }, {
-    name: 'Michael Lash',
-    email: 'michael-lash@uiowa.edu'
-  }, {
-    name: 'Deepti Sharma',
-    email: 'deepti-sharma@uiowa.edu'
-  }, {
-    name: 'Alexander Starr',
-    email: 'alexander-starr@uiowa.edu'
-  }, {
-    name: 'Dylan Thiemann',
-    email: 'dylan-thiemann@uiowa.edu'
-  }];
+  // Bind the four staff list categories from the contactListModel to the view so we can fill the table.
+  $scope.facultyList = contactListModel.getFacultyList();
+  $scope.phdList = contactListModel.getPhdList();
+  $scope.mcsList = contactListModel.getMcsList();
+  $scope.undergradList = contactListModel.getUndergradList();
 
 })
 

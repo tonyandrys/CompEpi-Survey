@@ -2,8 +2,10 @@
 // A global place for creating, registering, and retrieving AngularJS modules
 
 // The first parameter, 'compEpiSurvey' is the name of this angular module example (also set in a <body> attribute in index.html)
-// The second parameter is an array of dependencies. For now, this module one has one dependency, the 'ionic' package. More packages can be declared in the array to be used in the configuration below.
-angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers'])
+// The second parameter is an array of dependencies. For now, this module has three dependencies: The 'ionic' package, compEpiSurvey.controllers, and compEpiSurvey.services.
+// More packages can be declared in the array to be used in the configuration below.
+
+angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiSurvey.services'])
 
 /* Providers (dependency injections) can only be performed in module config methods */
 // By passing $stateProvider and $urlRouterProvider, we are requsting that these services be injected into the config function, which allows access to their functionality when configuring the module
