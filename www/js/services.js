@@ -83,6 +83,15 @@ angular.module('compEpiSurvey.services', [])
 
   // Public API definition - Use to accessing the data from this service
 	return {
+		getFullStaffList: function() {
+			console.log('ContactListService: Returning full staff list');
+			return {
+				faculty: facultyList,
+				phd: phdList,
+				mcs: mcsList,
+				undergrad: undergradList
+			}
+		}, 
 		getFacultyList: function() {
 			console.log('ContactListService: Returning Faculty List');
 			return facultyList;

@@ -12,11 +12,14 @@ angular.module('compEpiSurvey.controllers', [])
 .controller('ContactTabCtrl', function($scope, contactListModel) {
   console.log('ContactTabCtrl');
 
+  // Get the full set of contacts
+  contactSet = contactListModel.getFullStaffList();
+
   // Bind the four staff list categories from the contactListModel to the view so we can fill the table.
-  $scope.facultyList = contactListModel.getFacultyList();
-  $scope.phdList = contactListModel.getPhdList();
-  $scope.mcsList = contactListModel.getMcsList();
-  $scope.undergradList = contactListModel.getUndergradList();
+  $scope.facultyList = contactSet.faculty;
+  $scope.phdList = contactSet.phd;
+  $scope.mcsList = contactSet.mcs;
+  $scope.undergradList = contactSet.undergrad;
 
 })
 
