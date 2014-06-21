@@ -23,6 +23,9 @@ TODO
   * Canvas
   * Shape drawing/detection
 
+- [ ] Push Notifications
+  * Web-based external push service or local app-based push notifications?
+
 ### Lower Priority
 
 - [ ] Web transactions from arbitrary sources
