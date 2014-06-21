@@ -1,7 +1,73 @@
 /* compEpiSurvey.services */
 // Contains the service definitions for CompEpiSurvey. 
 
-angular.module('compEpiSurvey.services', [])
+angular.module('compEpiSurvey.services', ['LocalStorageModule'])
+
+// When services are injected into a method or another angular construct, the method receives an *instance* of the function defined.
+.service('ResponseService', function(localStorageService) {
+  localStorageService.set
+})
+
+
+
+
+
+
+
+
+
+
+// Survey Response Data Model/API (uses prototype)
+/*.service('ResponseService', function() {
+
+	// Properties
+	this.firstName = "undefined";
+	this.lastName = "undefined";
+	this.dateOfBirth = "00/00/0000";
+	this.gender = "undefined";
+	this.travel = [];
+	this.comment = "undefined";
+
+	// Methods
+	this.setFirstName = function(newFirstName) {
+		this.firstName = newFirstName;
+	};
+
+	this.setLastName = function(newLastName) {
+		this.lastName = newLastName;
+	};
+
+	this.setDateOfBirth = function(newDateOfBirth) {
+		this.dateOfBirth = newDateOfBirth;
+	};
+
+	this.setGender = function(newGender) {
+		this.setGender = newGender;
+	};
+
+	this.addTravelLocation = function(newTravelLocation) {
+		this.travel.push(newTravelLocation);
+	};
+
+	this.setComment = function(newComment) {
+		this.comment = newComment;
+	}
+
+	this.toString = function() {
+		return {
+			firstName: this.firstName,
+			lastName: this.lastName,
+			dateOfBirth: this.dateOfBirth,
+			gender: this.gender,
+			travel: this.travel,
+			comment: this.comment
+		}
+
+	}
+
+
+})*/
+
 
 // Provides the data for the table in the Contact tab
 // the .factory() method registers this service with angular, and the object function() returns represents the service.
@@ -81,7 +147,7 @@ angular.module('compEpiSurvey.services', [])
     email: 'dylan-thiemann@uiowa.edu'
   }];
 
-  // Public API definition - Use to accessing the data from this service
+  // API definition - use to access the data from this service
 	return {
 		getFullStaffList: function() {
 			console.log('ContactListService: Returning full staff list');

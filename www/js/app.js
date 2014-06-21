@@ -5,7 +5,8 @@
 // The second parameter is an array of dependencies. For now, this module has three dependencies: The 'ionic' package, compEpiSurvey.controllers, and compEpiSurvey.services.
 // More packages can be declared in the array to be used in the configuration below.
 
-angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiSurvey.services'])
+// is LocalStorageModule necessary if I don't touch it until the controller? Figure this out.
+angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiSurvey.services', 'LocalStorageModule'])
 
 /* Providers (dependency injections) can only be performed in module config methods */
 // By passing $stateProvider and $urlRouterProvider, we are requsting that these services be injected into the config function, which allows access to their functionality when configuring the module
@@ -41,7 +42,7 @@ angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiS
     views: {
       'survey-tab': {
         templateUrl: "templates/survey-basic-info.html",
-        controller: 'BasicInfoCtrl'
+        controller: 'SurveyDataCtrl'
       }
     }
   })
@@ -52,7 +53,7 @@ angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiS
     views: {
       'survey-tab': {
         templateUrl: "templates/survey-gender.html",
-        controller: 'GenderCtrl'
+        controller: 'SurveyDataCtrl'
       }
     }
   })
@@ -63,7 +64,7 @@ angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiS
     views: {
       'survey-tab': {
         templateUrl: "templates/survey-travel.html",
-        controller: 'TravelCtrl'
+        controller: 'SurveyDataCtrl'
       }
     }
   })
@@ -74,7 +75,7 @@ angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiS
     views: {
       'survey-tab': {
         templateUrl: "templates/survey-comment.html",
-        controller: 'SubmissionTabCtrl'
+        controller: 'SurveyDataCtrl'
       }
     }
   })
@@ -85,7 +86,7 @@ angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiS
     views: {
       'survey-tab': {
         templateUrl: "templates/survey-confirmation.html",
-        controller: 'ConfirmationCtrl'
+        controller: 'SurveyDataCtrl'
       }
     }
   })

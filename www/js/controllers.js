@@ -1,5 +1,8 @@
 /* compEpiSurvey.controllers */
 // Contains the controller definitions for CompEpiSurvey.
+//
+// A proper MVC based implementation of an Angular module dictates that controllers should primarily be responsible for binding model data to views. 
+//
 
 angular.module('compEpiSurvey.controllers', [])
 
@@ -21,7 +24,39 @@ angular.module('compEpiSurvey.controllers', [])
   $scope.mcsList = contactSet.mcs;
   $scope.undergradList = contactSet.undergrad;
 
-})
+});
+
+// Survey data controller
+// Controller stores the user's answer to all survey questions, and provides an API for read/write access to every property.
+.controller('SurveyDataCtrl', function($scope, localStorageService) {
+  console.log('SurveyDataCtrl');
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 // Basic Info Question Controller
 .controller('BasicInfoCtrl', function($scope, $rootScope) {
@@ -114,4 +149,11 @@ angular.module('compEpiSurvey.controllers', [])
   $scope.genderResponse = $rootScope.genderResponse;
   $scope.dateOfBirth = $rootScope.dateOfBirth;
 
-});
+})
+
+*/
+
+
+
+
+
