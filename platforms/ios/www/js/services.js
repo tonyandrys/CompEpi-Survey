@@ -1,75 +1,11 @@
 /* compEpiSurvey.services */
 // Contains the service definitions for CompEpiSurvey. 
 
-// DEPENDENCIES:
-// 1) localStorageModule - An AngularJS module that gives you access to the browsers local storage with cookie fallback (HTML5 based)
-
 angular.module('compEpiSurvey.services', ['LocalStorageModule'])
 
-// Response Services provides an access point for controllers to read/write stored data using localStorageModule
-.factory('ResponseService', function(localStorageService) {
-
-  // Data variables
-  var firstName = "";
-  var lastName = "";
-  var dateOfBirth = "";
-  var gender = "";
-  var travel = [];
-  var comment = "";
-
-  // Access methods
-  return {
-    
-    getFirstName: function () {
-      return firstName;                   
-    },
-  
-    setFirstName: function (newName) {
-      firstName = newName;
-    },
-
-    getLastName: function(newName) {
-      return lastName;
-    },
-
-    setLastName: function(newName) {
-      lastName = newName;
-    },
-
-    getDateOfBirth: function() {
-      return dateOfBirth;
-    },
-
-    setDateOfBirth: function(newDob) {
-      dateOfBirth = newDob;
-    },
-
-    getGender: function() {
-      return gender;
-    },
-
-    setGender: function(newGender) {
-      gender = newGender;
-    },
-
-    getTravelLocations: function() {
-      return travel;
-    },
-
-    addTravelLocation: function(newLocation) {
-      travel[travel.length] = newLocation;
-    },
-
-    getComment: function() {
-      return comment;
-    },
-
-    setComment: function(newComment) {
-      comment = newComment;
-    },
-
-  }
-
+// When services are injected into a method or another angular construct, the method receives an *instance* of the function defined.
+.service('ResponseService', function(localStorageService) {
+  localStorageService.set
 })
 
 

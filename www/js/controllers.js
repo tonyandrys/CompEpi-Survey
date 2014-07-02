@@ -24,74 +24,40 @@ angular.module('compEpiSurvey.controllers', [])
   $scope.mcsList = contactSet.mcs;
   $scope.undergradList = contactSet.undergrad;
 
-});
-
-// Survey data controller
-// Controller stores the user's answer to all survey questions, and provides an API for read/write access to every property.
-.controller('SurveyDataCtrl', function($scope, localStorageService) {
-  console.log('SurveyDataCtrl');
-
-
-
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
+})
 
 // Basic Info Question Controller
-.controller('BasicInfoCtrl', function($scope, $rootScope) {
+.controller('BasicInfoCtrl', function($scope, ResponseService) {
 
-  // Store user input 
-  $scope.firstName = "";
-  $scope.lastName = "";
-  $scope.dateOfBirth = "";
+  console.log('BasicInfoCtrl initialized');
 
-  // On data changes, update the model in the rootScope.
-  // FIXME: Dirty. Does this have to be three calls? There has to be a better way to do this.
-  $scope.$watch("firstName", function(newValue, oldValue) {
-    $rootScope.firstName = newValue;
-  });
+  $scope.formData = {};
 
-  $scope.$watch("lastName", function(newValue, oldValue) {
-    $rootScope.lastName = newValue;
-  });
+  // Store user input (retrieve if necessary)
+  $scope.formData.firstName = ResponseService.getFirstName();
+  $scope.formData.lastName = ResponseService.getLastName();
+  $scope.formData.dateOfBirth = ResponseService.getDateOfBirth();
 
-  $scope.$watch("dateOfBirth", function(newValue, oldValue) {
-    $rootScope.dateOfBirth = newValue;
-  });
+  // On transition to next screen, store the responses in localStorage
+  $scope.saveData = function() {
+    ResponseService.setFirstName($scope.formData.firstName);
+    ResponseService.setLastName($scope.formData.lastName);
+    ResponseService.setDateOfBirth($scope.formData.dateOfBirth);
+    console.log("Wrote firstname: " + $scope.formData.firstName + ", lastname: " + $scope.formData.lastName + ", dateOfBirth: " + $scope.formData.dateOfBirth);
+  }
 
 })
 
 // Gender Question Controller
-.controller('GenderCtrl', function($scope, $rootScope) {
+.controller('GenderCtrl', function($scope, ResponseService) {
 
   // Store response as a string
   $scope.genderResponse = "";
 
-  // Store changes in rootScope
-  $scope.$watch("genderResponse", function(newValue, oldValue) {
-    $rootScope.genderResponse = newValue;
-  });
+  // Store results onClick
+  $scope.saveData = function() {
+    ResponseService.setGender($scope.genderResponse);
+  }
 
 })
 
@@ -108,8 +74,25 @@ angular.module('compEpiSurvey.controllers', [])
 
 })
 
+// Travel Question Controller
+.controller('D3Ctrl', function($scope, $rootScope) {
+
+  console.log("D3Ctrl");
+
+  $scope.formData = {};
+
+  // Store data input as a string
+  $scope.formData.input = "";
+
+})
+
 // Submission page controller
-.controller('SubmissionTabCtrl', function($scope, $ionicPopup, $timeout, $state) {
+.controller('SubmissionTabCtrl', function($scope, $ionicPopup, $timeout, $state, ResponseService) {
+
+  $scope.formData = {};
+
+  // Store user input (retrieve if necessary)
+  $scope.formData.comment = ResponseService.getComment();
 
   // Triggered on the Submit button click
   $scope.showConfirm = function() {
@@ -123,6 +106,10 @@ angular.module('compEpiSurvey.controllers', [])
     confirmPopup.then(function(res) {
       if(res) {
         console.log('Answers are correct.');
+
+        // Write comment to localStorage
+        ResponseService.setComment($scope.formData.comment);
+        console.log("Wrote comment: " + $scope.formData.comment); 
         
         // Move to confirmation page.
         $state.go('tabs.surveyconf');
@@ -138,20 +125,19 @@ angular.module('compEpiSurvey.controllers', [])
 })
 
 // Confirmation page controller
-.controller('ConfirmationCtrl', function($scope, $rootScope) {
+.controller('ConfirmationCtrl', function($scope, ResponseService) {
 
   console.log('ConfirmationCtrl');
 
   // Pull data down from rootScope and bind it to this controller's scope to be pulled into the view
-  $scope.firstName = $rootScope.firstName;
-  $scope.lastName = $rootScope.lastName;
-  $scope.dateOfBirth = $rootScope.dateOfBirth;
-  $scope.genderResponse = $rootScope.genderResponse;
-  $scope.dateOfBirth = $rootScope.dateOfBirth;
+  $scope.firstName = ResponseService.getFirstName();
+  $scope.lastName = ResponseService.getLastName();
+  $scope.dateOfBirth = ResponseService.getDateOfBirth();
+  $scope.comment = ResponseService.getComment();
+
 
 })
 
-*/
 
 
 

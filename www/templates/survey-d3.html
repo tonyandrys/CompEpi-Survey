@@ -1,0 +1,45 @@
+<ion-view title="Page Four">
+  <ion-content class="padding">
+    <!-- Define this tab's visible display content -->
+    
+    <div class="row">
+      <div class="col col-100">
+        <h2 style="text-align:center">D3 Chart Generator</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-100">
+      <strong>Enter some numbers, separated only by commas.</strong>
+        <div class="list">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Data</span>
+            <input type="text" ng-model="formData.input" id="inputDataField" placeholder="1,2,3,4,5">
+                <div class="row">
+                  <div class="col col-33 col-offset-33">
+                    <button class="button button-energized" id="generateChartButton">Generate</button>
+                  </div>
+                </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-100">
+        <!-- Chart will be added to the DOM here -->
+        <div id="chart">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col col-100">
+          <a class="button button-block button-stable icon icon-right ion-chevron-right" href="#/tab/survey/5">Next</a>  
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

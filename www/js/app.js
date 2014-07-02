@@ -10,8 +10,13 @@ angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiS
 
 /* Providers (dependency injections) can only be performed in module config methods */
 // By passing $stateProvider and $urlRouterProvider, we are requsting that these services be injected into the config function, which allows access to their functionality when configuring the module
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
   
+  // Set the local storage prefix to avoid collisions
+  var STORAGE_PREFIX = "COMPEPI";
+  localStorageServiceProvider.setPrefix(STORAGE_PREFIX);
+  console.log("INITIALIZED - local storage prefix is " + STORAGE_PREFIX);
+
   // Defining routes using stateProvider
   $stateProvider
   
@@ -42,7 +47,7 @@ angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiS
     views: {
       'survey-tab': {
         templateUrl: "templates/survey-basic-info.html",
-        controller: 'SurveyDataCtrl'
+        controller: 'BasicInfoCtrl'
       }
     }
   })
@@ -53,7 +58,7 @@ angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiS
     views: {
       'survey-tab': {
         templateUrl: "templates/survey-gender.html",
-        controller: 'SurveyDataCtrl'
+        controller: 'GenderCtrl'
       }
     }
   })
@@ -64,18 +69,29 @@ angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiS
     views: {
       'survey-tab': {
         templateUrl: "templates/survey-travel.html",
-        controller: 'SurveyDataCtrl'
+        controller: 'SurveyTabCtrl'
+      }
+    }
+  })
+
+    // Free Response Comment
+  .state('tabs.survey4', {
+    url: "/survey/4",
+    views: {
+      'survey-tab': {
+        templateUrl: "templates/survey-d3.html",
+        controller: 'D3Ctrl'
       }
     }
   })
 
   // Free Response Comment
-  .state('tabs.survey4', {
-    url: "/survey/4",
+  .state('tabs.survey5', {
+    url: "/survey/5",
     views: {
       'survey-tab': {
         templateUrl: "templates/survey-comment.html",
-        controller: 'SurveyDataCtrl'
+        controller: 'SubmissionTabCtrl'
       }
     }
   })
@@ -86,7 +102,7 @@ angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiS
     views: {
       'survey-tab': {
         templateUrl: "templates/survey-confirmation.html",
-        controller: 'SurveyDataCtrl'
+        controller: 'ConfirmationCtrl'
       }
     }
   })
