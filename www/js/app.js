@@ -2,7 +2,7 @@
 // A global place for creating, registering, and retrieving AngularJS modules
 
 // The first parameter, 'compEpiSurvey' is the name of this angular module example (also set in a <body> attribute in index.html)
-// The second parameter is an array of dependencies. For now, this module has three dependencies: The 'ionic' package, compEpiSurvey.controllers, and compEpiSurvey.services.
+// The second parameter is an array of dependencies. For now, this module has four dependencies: The 'ionic' package, compEpiSurvey.controllers, and compEpiSurvey.services.
 // More packages can be declared in the array to be used in the configuration below.
 
 // is LocalStorageModule necessary if I don't touch it until the controller? Figure this out.

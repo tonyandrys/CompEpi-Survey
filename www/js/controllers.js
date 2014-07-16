@@ -2,18 +2,17 @@
 // Contains the controller definitions for CompEpiSurvey.
 //
 // A proper MVC based implementation of an Angular module dictates that controllers should primarily be responsible for binding model data to views. 
-//
 
 angular.module('compEpiSurvey.controllers', [])
 
 .controller('SurveyTabCtrl', function($scope) {
-  console.log('SurveyTabCtrl');
+  console.log('SurveyTab Controller loaded.');
 })
 
 // Contact Data Controller
 // Inject the contactListModel service defined in compEpiSurvey.services to access the staff data
 .controller('ContactTabCtrl', function($scope, contactListModel) {
-  console.log('ContactTabCtrl');
+  console.log('Contact Tab Controller loaded.');
 
   // Get the full set of contacts
   contactSet = contactListModel.getFullStaffList();
@@ -28,8 +27,7 @@ angular.module('compEpiSurvey.controllers', [])
 
 // Basic Info Question Controller
 .controller('BasicInfoCtrl', function($scope, ResponseService) {
-
-  console.log('BasicInfoCtrl initialized');
+  console.log('Basic Info Controller loaded.');
 
   $scope.formData = {};
 
@@ -50,6 +48,7 @@ angular.module('compEpiSurvey.controllers', [])
 
 // Gender Question Controller
 .controller('GenderCtrl', function($scope, ResponseService) {
+  console.log('Gender Controller loaded.');
 
   // Store response as a string
   $scope.genderResponse = "";
@@ -62,22 +61,17 @@ angular.module('compEpiSurvey.controllers', [])
 })
 
 // Travel Question Controller
-.controller('TravelCtrl', function($scope, $rootScope) {
+.controller('TravelCtrl', function($scope) {
+  console.log('Travel Controller loaded.');
 
   // Store response as a string
   $scope.travelResponse = "";
-
-  // Store changes in rootScope
-  $scope.$watch("travelResponse", function(newValue, oldValue) {
-    $rootScope.travelResponse = newValue;
-  });
 
 })
 
 // Travel Question Controller
 .controller('D3Ctrl', function($scope, $rootScope) {
-
-  console.log("D3Ctrl");
+  console.log("D3 Controller loaded.");
 
   $scope.formData = {};
 
@@ -127,9 +121,9 @@ angular.module('compEpiSurvey.controllers', [])
 // Confirmation page controller
 .controller('ConfirmationCtrl', function($scope, ResponseService) {
 
-  console.log('ConfirmationCtrl');
+  console.log('Confirmation Controller loaded.');
 
-  // Pull data down from rootScope and bind it to this controller's scope to be pulled into the view
+  // Retrieve the data we gathered from previous views via ResponseService and bind it to this controller's scope to be displayed in this view.
   $scope.firstName = ResponseService.getFirstName();
   $scope.lastName = ResponseService.getLastName();
   $scope.dateOfBirth = ResponseService.getDateOfBirth();
