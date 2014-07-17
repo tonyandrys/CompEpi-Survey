@@ -85,9 +85,20 @@ angular.module('compEpiSurvey', ['ionic', 'compEpiSurvey.controllers', 'compEpiS
     }
   })
 
-  // Free Response Comment
+  // Image Map Selection
   .state('tabs.survey5', {
     url: "/survey/5",
+    views: {
+      'survey-tab': {
+        templateUrl: "templates/survey-image-map.html",
+        controller: 'ImageMapCtrl'
+      }
+    }
+  })
+
+  // Free Response Comment
+  .state('tabs.survey6', {
+    url: "/survey/6",
     views: {
       'survey-tab': {
         templateUrl: "templates/survey-comment.html",

@@ -26,6 +26,66 @@ Tony Andrys
       }
     </style>
 
+    <!-- Temporary addition of image map styling inline. FIXME -->
+    <style>
+
+        /* Style the map <div> with position: relative to allow later absolute positioning of clickable regions on top of the map. */
+        #map {
+            position: relative;
+
+            /* Dimensions of the display image _must_ be hardcoded here. */
+            width: 1052px; 
+            height: 708px;
+        }
+
+        #map ul {
+            list-style: none;
+        }
+
+        /* Give each list item an absolute positioning to be able to position them on the right spots, a text-indent to hide the display text for each element, and display: none to hide them. */
+        #map li {
+            position: absolute;
+            z-index: 20;
+            text-indent: -1000em;
+            display: none;
+        }
+
+        /* Style the clickable regions by giving them a "fill"/rollover image, and the right dimensions and positions over the map. */
+        
+        #district-1 {
+            background: url(../img/district-1-fill.png) no-repeat;
+            width: 522px;
+            height: 421px;
+            left: 505px;
+            bottom: 273px;
+        }
+
+        #district-2 {
+            background: url(../img/district-2-fill.png) no-repeat;
+            width: 605px;
+            height: 348px;
+            left: 419px;
+            top: 325px;
+        }
+
+        #district-3 {
+            background: url(../img/district-3-fill.png) no-repeat;
+            width: 419px;
+            height: 268px;
+            left: 109px;
+            bottom: 78px;
+        }
+
+        #district-4 {
+            background: url(../img/district-4-fill.png) no-repeat;
+            width: 714px;
+            height: 425px;
+            left: 12px;
+            bottom: 270px;
+        }
+
+    </style>
+
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">

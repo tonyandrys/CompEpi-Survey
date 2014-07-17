@@ -80,6 +80,12 @@ angular.module('compEpiSurvey.controllers', [])
 
 })
 
+// Image Map Controller
+.controller('ImageMapCtrl', function($scope, ResponseService) {
+  console.log("ImageMap Controller loaded.");
+
+})
+
 // Submission page controller
 .controller('SubmissionTabCtrl', function($scope, $ionicPopup, $timeout, $state, ResponseService) {
 
