@@ -51,7 +51,7 @@ Tony Andrys
         }
 
         /* Style the clickable regions by giving them a "fill"/rollover image, and the right dimensions and positions over the map. */
-        
+
         #district-1 {
             background: url(../img/district-1-fill.png) no-repeat;
             width: 522px;
@@ -158,7 +158,25 @@ Tony Andrys
             .text(function(d) { return d; });
 
       });
-</script>
+
+    </script>
+
+
+    <!-- Image Map Javascript -->
+    <!-- FIXME: Move to an external script, inline javascript is ugly -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        
+        // This will work because we are listening on the 'document'. Since the <area> tags are added dynamically _after_ this script is executed (script is executed on first page), we need to bind to the root element of the DOM.
+        $(document).on("click",".maparea", function() {
+            var id = $(this).attr('id');
+            var url = $(this).attr('href'); 
+            var coords = $(this).attr('coords').split(',');
+            console.log("Clicked (id - " + id + ", url: " + url); 
+        });
+
+    });
+    </script>
 
   </body>
 </html>
